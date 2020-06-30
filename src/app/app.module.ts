@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SeatMapComponent } from './seat-map/seat-map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SeatMapComponent
   ],
   imports: [
     BrowserModule,

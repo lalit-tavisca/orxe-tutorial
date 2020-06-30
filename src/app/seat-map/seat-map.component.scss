@@ -1,0 +1,98 @@
+.seat-map-component {
+  width: 30%;
+  float: left;
+}
+
+.seat-map-toolBar {
+  width: 100%;
+  text-align: center;
+  background-color: darkblue;
+  color: white;
+  padding: 10px;
+}
+
+.seat-map-toolBar label {
+  vertical-align: middle;
+}
+
+.back-icon {
+  float: left;
+}
+
+.seat-map-body {
+  padding: 10px;
+  background-color: white;
+  width: 100%;
+}
+
+.segment-journey {
+  font-weight: bold;
+}
+
+.segment-journey #journeyDirectionIndicator {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.segment-meta-data div {
+  display: inline-block;
+}
+
+.meta-deta-block-separator {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.meta-deta-block-label {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.availability-block {
+  display: inline-block;
+  margin-right: 10px;
+  width: 30%;
+}
+
+.square {
+  height: 20px;
+  width: 20px;
+  border: solid black 1px;
+  text-align: center;
+  display: inline-block;
+}
+
+.available {
+  background-color: white;
+}
+
+.premium {
+  background-color: green;
+}
+
+.unavailable {
+  background-color: gray;
+}
+
+.availability-indicator-row {
+  padding: 10px;
+}
+
+.seat-details {
+  padding: 10px;
+}
+
+.square-heading {
+  content: "";
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+  border: solid grey 1px;
+}
+
+.seat-data {
+  margin-right: 20px;
+  margin-top: 10px;
+}
