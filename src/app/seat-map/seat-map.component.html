@@ -8,9 +8,11 @@
   <div class="seat-map-body">
     <div class="segment-details">
       <div class="segment-journey">
-        <label class="origin-airport">{{originAirportCityName}} ({{originAirportCode}})</label>
+        <label class="origin-airport">{{ originAirportCityName }} ({{ originAirportCode }})</label>
         <label id="journeyDirectionIndicator">&#10140;</label>
-        <label class="destination-airport">{{destinationAirportCityName}} ({{destinationAirportCode}})</label>
+        <label class="destination-airport">{{ destinationAirportCityName }} ({{
+            destinationAirportCode
+          }})</label>
       </div>
       <div class="segment-meta-data">
         <div class="segment-date meta-deta-block">
@@ -20,39 +22,79 @@
         </div>
         <label class="segment-date meta-deta-block-separator">|</label>
         <div class="segment-date meta-deta-block">
-          <label class="segment-airline-name meta-deta-block-label">{{airlineName}}</label>
-          <label class="segment-flight-number meta-deta-block-label">{{flightNumber}}</label>
+          <label class="segment-airline-name meta-deta-block-label">{{
+            airlineName
+          }}</label>
+          <label class="segment-flight-number meta-deta-block-label">{{
+            flightNumber
+          }}</label>
         </div>
         <label class="segment-date meta-deta-block-separator">|</label>
         <div class="segment-date meta-deta-block">
-          <label class="aircraft-name meta-deta-block-label">{{airCraftName}}</label>
-          <label class="aircraft-number meta-deta-block-label">{{airCraftNumber}}</label>
+          <label class="aircraft-name meta-deta-block-label">{{
+            airCraftName
+          }}</label>
+          <label class="aircraft-number meta-deta-block-label">{{
+            airCraftNumber
+          }}</label>
         </div>
       </div>
     </div>
     <div class="availability-indicator">
       <div class="availability-indicator-row">
         <div class="availability-block">
-          <div class="square available">&#10003;</div><label>Available</label>
+          <div class="square available"></div>
+          <label>Available</label>
         </div>
         <div class="availability-block">
-          <div class="square unavailable">&#10005;</div><label>Unavailable</label>
+          <div class="square unavailable">&#10005;</div>
+          <label>Unavailable</label>
         </div>
       </div>
       <div class="availability-indicator-row">
         <div class="availability-block">
-          <div class="square">&#9855;</div><label>Accessible</label>
+          <div class="square">&#9855;</div>
+          <label>Accessible</label>
         </div>
         <div class="availability-block">
-          <div class="square premium">P</div><label>Premium</label>
+          <div class="square premium">P</div>
+          <label>Premium</label>
         </div>
       </div>
     </div>
     <div class="seat-details">
-      <div class="cabin-location-section" *ngFor="let cabin of cabinLayoutList">
+      <div class="cabin-location-section" *ngFor="let seatMapCabin of cabinLayoutList">
         <div class="seat-row-heading">
-          <div class="square-heading" *ngFor="let layout of cabin.cabinLayout">
-            <label *ngIf="layout!='|'">{{layout}}</label>
+          <span *ngFor="let layout of seatMapCabin.cabinLayout">
+            <label class="square-heading" *ngIf="layout != '|'">{{ layout }}</label>
+            <label class="square-heading-blank" *ngIf="layout === '|'"></label>
+          </span>
+        </div>
+        <div class="seat-map-body">
+          <div class="seat-row-data" *ngFor="let seatRow of seatMapCabin.seats">
+            <div class="seat-row" *ngFor="let seat of seatRow">
+              <div *ngIf="isAvailable(seat); then available else checkForAccessible">
+              </div>
+
+              <ng-template #available>
+                <label class="square-data available"></label>
+              </ng-template>
+
+              <ng-template #checkForAccessible>
+                <label class="square-data" *ngIf="isAccessible(seat) else checkForPremium">&#9855;</label>
+              </ng-template>
+
+              <ng-template #checkForPremium>
+                <label class="square-data premium" *ngIf="isPremium(seat) else unavailable">P</label>
+              </ng-template>
+
+              <ng-template #unavailable>
+                <label class="square-data unavailable">&#10005;</label>
+              </ng-template>
+
+              <label class="square-separator"
+                *ngIf="shouldAddSeparator(seatMapCabin.cabinLocation,seat.columnCharacter)">{{seat.rowNumber}}</label>
+            </div>
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@
 }
 
 .seat-map-toolBar {
-  width: 100%;
   text-align: center;
   background-color: darkblue;
   color: white;
@@ -20,7 +19,6 @@
 }
 
 .seat-map-body {
-  padding: 10px;
   background-color: white;
   width: 100%;
 }
@@ -60,6 +58,7 @@
   border: solid black 1px;
   text-align: center;
   display: inline-block;
+  vertical-align: top;
 }
 
 .available {
@@ -67,7 +66,7 @@
 }
 
 .premium {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 .unavailable {
@@ -83,16 +82,61 @@
 }
 
 .square-heading {
-  content: "";
   height: 20px;
   width: 20px;
   text-align: center;
   display: inline-block;
   margin-right: 20px;
   border: solid grey 1px;
+  vertical-align: top;
+}
+
+.square-heading div {
+  display: inline-block;
+}
+
+.square-heading-blank {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 21px;
+  vertical-align: top;
+}
+
+.square-data {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+  border: solid grey 1px;
+  vertical-align: top;
+}
+
+.square-separator {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 21px;
+  vertical-align: top;
+}
+
+.row-data {
+  margin-right: 20px;
 }
 
 .seat-data {
   margin-right: 20px;
   margin-top: 10px;
+}
+
+.seat-row {
+  display: inline-block;
+}
+
+.seat-row-data {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

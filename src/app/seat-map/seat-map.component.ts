@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { SeatMapService, SeatMapResponse, Cabins } from "../seat-map.service";
+import {
+  SeatMapService,
+  SeatMapResponse,
+  Cabins,
+  Seat,
+} from "../seat-map.service";
 
 @Component({
   selector: "app-seat-map",
@@ -36,12 +41,14 @@ export class SeatMapComponent implements OnInit {
   @Input()
   date: string;
 
-  private columnCharacterCounter = 0;
-
   dateDay: string;
   dateMonth: string;
   dateNumber: number;
   cabinLayoutList: Array<CabinLayout>;
+  data2 = [1];
+
+  private seatCounter = 0;
+  private maxSeats = 0;
   constructor(seatMapService: SeatMapService) {
     this.seatMapResponse = seatMapService.getSeatMap();
     this.cabinLayoutList = this.getCabinLayout();
@@ -52,6 +59,7 @@ export class SeatMapComponent implements OnInit {
     let cabinLayoutList = new Array<CabinLayout>();
     this.seatMapResponse.cabins.forEach((cabin) => {
       let layout = new CabinLayout();
+      layout.seatCounter = 0;
       layout.cabinLocation = cabin.location;
       layout.cabinLayout = new Array<string>();
       console.log(cabin.columns.length);
@@ -83,6 +91,24 @@ export class SeatMapComponent implements OnInit {
           layout.cabinLayout.push("|");
         }
       }
+      layout.maxSeats = cabin.seats.length;
+      let seatsLayout = new Array<Array<Seat>>();
+      for (let seatIndex = 0; seatIndex < layout.maxSeats; ) {
+        let seats = new Array<Seat>();
+        for (
+          let layoutIndex = 0;
+          layoutIndex < layout.cabinLayout.length - 1;
+          layoutIndex++
+        ) {
+          seats.push(cabin.seats[seatIndex]);
+          seatIndex++;
+          console.log(seats);
+          if (seatIndex >= layout.maxSeats) break;
+        }
+        seatsLayout.push(seats);
+        if (seatIndex >= layout.maxSeats) break;
+      }
+      layout.seats = seatsLayout;
       cabinLayoutList.push(layout);
     });
     return cabinLayoutList;
@@ -95,18 +121,30 @@ export class SeatMapComponent implements OnInit {
     return layout;
   }
 
-  isLayoutCorrect(cabinLoaction: string, columnCharacter: string) {
+  shouldAddSeparator(cabinLoaction: string, columnCharacter: string) {
     let layout = this.cabinLayoutList.find(
       (c) => c.cabinLocation === cabinLoaction
     );
     if (layout === undefined) {
-      return "";
+      return false;
     } else {
-      let columnCharacter = layout.cabinLayout.find(
-        (column) => column === columnCharacter
-      );
-      return columnCharacter;
+      let columnCharacterIndex = layout.cabinLayout.indexOf(columnCharacter);
+      if (columnCharacterIndex === layout.cabinLayout.length) return false;
+      else if (layout.cabinLayout[columnCharacterIndex + 1] === "|")
+        return true;
+      return false;
     }
+  }
+
+  isAvailable(seat: Seat) {
+    return seat.occupationStatus === "available";
+  }
+  isUnavailable() {}
+  isAccessible(seat: Seat) {
+    return seat.occupationStatus === "protected";
+  }
+  isPremium(seat: Seat) {
+    return seat.occupationStatus === "reserved";
   }
   ngOnInit() {}
 }
@@ -114,4 +152,7 @@ export class SeatMapComponent implements OnInit {
 export class CabinLayout {
   cabinLocation: string;
   cabinLayout: Array<string>;
+  maxSeats: number;
+  seatCounter: number;
+  seats: Array<Array<Seat>>;
 }
