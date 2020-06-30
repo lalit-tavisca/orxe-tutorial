@@ -1,6 +1,6 @@
 <div class="seat-map-component">
   <div class="seat-map-toolBar">
-    <span class="back-icon">
+    <span class="back-icon" (click)="closeSeatMap($event)">
       &#10094;
     </span>
     <label>Seat map (view only)</label>
@@ -77,7 +77,7 @@
               </div>
 
               <ng-template #available>
-                <label class="square-data available"></label>
+                <label class="square-data available" (click)="selectSeat($event)"></label>
               </ng-template>
 
               <ng-template #checkForAccessible>

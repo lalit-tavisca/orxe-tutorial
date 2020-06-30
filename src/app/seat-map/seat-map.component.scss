@@ -16,6 +16,7 @@
 
 .back-icon {
   float: left;
+  cursor: pointer;
 }
 
 .seat-map-body {
@@ -63,6 +64,12 @@
 
 .available {
   background-color: white;
+  cursor: pointer;
+}
+
+.seat-selected {
+  background-color: green;
+  cursor: pointer;
 }
 
 .premium {

@@ -146,6 +146,19 @@ export class SeatMapComponent implements OnInit {
   isPremium(seat: Seat) {
     return seat.occupationStatus === "reserved";
   }
+  closeSeatMap($event) {
+    $event.stopPropagation();
+    console.log("Close seatmap");
+  }
+
+  selectSeat($event) {
+    $event.stopPropagation();
+    console.log("select seat");
+    let isSelected = $event.target.classList.contains("seat-selected");
+    if (!isSelected) $event.target.classList.add("seat-selected");
+    else $event.target.classList.remove("seat-selected");
+    console.log($event.target.classList);
+  }
   ngOnInit() {}
 }
 
