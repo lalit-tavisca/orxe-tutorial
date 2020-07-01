@@ -3,7 +3,7 @@ import { SeatMap } from '../models/seatmap.model';
 
 @Injectable({
     providedIn: 'root'
-   })
+})
 
 export class SeatMapService {
     seatmapResponse: SeatMap = this.getMockSeatmapResponse();
@@ -154,7 +154,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "7",
                             "columnCharacter": "B",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "Accessible",
                             "characteristics": [],
                             "optionalData": {
                                 "isPaidSeat": false
@@ -163,7 +163,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "7",
                             "columnCharacter": "C",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "Premium",
                             "characteristics": [
                                 "aisle"
                             ],

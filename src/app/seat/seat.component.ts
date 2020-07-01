@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SeatMapService } from '../service/seatmap.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { SeatMapService } from '../service/seatmap.service';
   styleUrls: ['./seat.component.scss']
 })
 export class SeatComponent implements OnInit {
+
+  @Input() background: string = "{background:'url(\'../../assets/img/seat_booked.png\') no-repeat center'}";
 
   constructor(private seatMapService: SeatMapService) { }
 
