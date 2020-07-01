@@ -1,0 +1,26 @@
+<p appOutline>itinerary works!</p>
+<button (click)="toggleMixAndMatch();">Toggle Mix And Match</button>
+<ng-container *ngIf="isMixAndMatch then isMixAndMatch else nonMixAndMatch"></ng-container>
+<ng-template #isMixAndMatch>
+    <label>
+        Mix And Match
+        <input type="checkbox"/>
+    </label>
+</ng-template>
+<ng-template #nonMixAndMatch>Non mix and match</ng-template>
+
+<ng-container *ngIf="showFirstDiv then firstDiv else secondDiv">
+    
+</ng-container>
+<ng-template #firstDiv><div> Div 1 rendered;</div></ng-template>
+<ng-template #secondDiv>Div 2 rendered.</ng-template>
+<div *appAppNot="true">will be displayed on UI.</div>
+<div *ngFor="let fareAttribute of fareAttributes; let i = index;">
+    <p>{{fareAttribute.brandAttribute + ' - ' + fareAttribute.brandAttributeValue}}</p>
+</div>
+<div [ngSwitch]="journeyType">
+    <p *ngSwitchCase="'0'">One way</p>
+    <p *ngSwitchCase="'1'">Round trip</p>
+    <p *ngSwitchCase="'2'">Multi city</p>
+    <p *ngSwitchDefault>Unknown</p>
+</div>
