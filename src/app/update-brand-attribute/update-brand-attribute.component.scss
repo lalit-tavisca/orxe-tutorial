@@ -1,0 +1,67 @@
+.container{
+    width: 25%;  
+    border: 2px solid gray;  
+    border-radius: 5px;
+}
+.sub-container{
+    margin-left: 10px;
+}
+
+.title-div {
+  background-color: #0a57a1;
+  height: 40px;
+  text-align: center;
+  color: white;
+  font-size: medium;  
+}
+.selected-fare{
+    background-color: #E1E6ED;
+    height: 30px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+.currancy{
+    color: green;
+    font-size: 25px;
+}
+
+.fare-details-text{
+    color: blue;
+    font-size: 12px;
+    cursor: pointer;
+}
+.desc-text{
+    margin-top: 15px;
+   
+}
+.desc-sub-text{
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+ }
+
+ .btn-success{
+     background-color: #238738;
+     width: 80%;
+ }
+
+ .upgrade-fare{
+    background-color: #E1E6ED;
+    height: 40px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.horizantal-line{
+    height: 5px;
+    background-color: #E1E6ED;
+}
+.fare-details-div{
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

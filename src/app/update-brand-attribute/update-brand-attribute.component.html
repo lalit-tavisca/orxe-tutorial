@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="row title-div">
+    <div class="col-xs-1">
+      <ngx-fa name="fa fa-arrow-left" [animation]="true" size="lg"></ngx-fa>
+    </div>
+    <div class="col-xs-10">
+      <h5>Upgrade you flight</h5>
+    </div>
+  </div>
+
+  <div class="row selected-fare">
+    <span>Your selected fare</span>
+  </div>
+  <br />
+  <div class="sub-container">
+    <div class="row">
+      <div class="col-xs-6">
+        <input type="radio" [(ngModel)]="selectedFareOptions.selectedFareType" id="basic" [value]='selectedFareOptions.segments[0].fareFamily.name' name="radiobtn" (change)="onSelectedFareRadioBtnClick(selectedFareOptions)" />
+        <label for="basic" style="margin-left: 10px;"> {{selectedFareOptions.segments[0].fareFamily.name}}</label
+        ><br />
+      </div>
+      <div class="col-xs-6" style="text-align: right;">
+        <b><span class="currancy">{{'$'+selectedFareOptions.totalAmount}}</span></b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <label class="fare-details-text" (click)="onFareDetials(selectedFareOptions)">Fare Details</label>
+      </div>
+      <div class="col-xs-6" style="text-align: right;">
+        <span>round trip</span>
+      </div>
+    </div>
+    <div class="col-xs-12 fare-details-div" *ngIf="selectedFareOptions.isShowFareDetails">
+        <div class="col-xs-6">
+            <b> <span>Included</span></b>
+          <ul>
+              <li>$ Carry-on bag</li>
+              <li>$ Ticker refund</li>            
+          </ul>
+        </div>
+        <div class="col-xs-6">
+            <b> <span>Additional</span></b>
+          <ul>
+              <li>$  Checked bags</li>
+          </ul>
+        </div>
+        <div class="col-xs-12">
+           <b> <span>Not Avilable</span></b>
+          <ul>
+              <li>X Ticker Change</li>
+              <li>X Seat assingment</li>
+              
+          </ul>
+        </div>
+      </div>
+    <div class="row desc-text">
+      <div class="col-xs-12">
+        <span>Total(1) people $125 or 12,500 points + $10</span>
+      </div>
+    </div>
+    <div class="row desc-sub-text">
+      <div class="col-xs-12">
+        <span>Includes $10 per ticket fee </span>
+      </div>
+    </div>    
+    <div class="row" style="margin-bottom: 20px;" *ngIf="selectedFareOptions.showBtn">
+      <div class="col-xs-12" style="text-align: center;">
+        <button class="btn btn-success">Continue with this fare</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row upgrade-fare">
+    <span>Upgrade Options</span>
+  </div>
+  <br>
+  <div class="sub-container" *ngFor="let item of fareOptionsToUpgrades; index as i;">
+    <div class="row">
+      <div class="col-xs-8">
+        <input type="radio" id="{{'cabin'+ i}}" value="{{item.segments[0].fareFamily.name}}" name="radiobtn" (change)="onRadioBtnClick(item)"/>
+        <label for="{{'cabin'+ i}}" style="margin-left: 10px;"> {{item.segments[0].fareFamily.name}}</label
+        ><br />
+      </div>
+      <div class="col-xs-4" style="text-align: right;">
+        <b><span class="currancy">{{'$'+item.totalAmount}}</span></b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <label class="fare-details-text" (click)="onFareDetials(item)">Fare Details</label>
+      </div>
+      <div class="col-xs-6" style="text-align: right;">
+        <span>round trip</span>
+      </div>
+    </div>
+    <div class="col-xs-12 fare-details-div" *ngIf="item.isShowFareDetails">
+        <div class="col-xs-6">
+            <b> <span>Included</span></b>
+          <ul>
+              <li>$ Carry-on bag</li>
+              <li>$ Ticker refund</li>            
+          </ul>
+        </div>
+        <div class="col-xs-6">
+            <b> <span>Additional</span></b>
+          <ul>
+              <li>$  Checked bags</li>
+          </ul>
+        </div>
+        <div class="col-xs-12">
+           <b> <span>Not Avilable</span></b>
+          <ul>
+              <li>X Ticker Change</li>
+              <li>X Seat assingment</li>
+              
+          </ul>
+        </div>
+      </div>
+    <div class="row desc-text">
+      <div class="col-xs-12">
+        <span>Total(1) people $125 or 12,500 points + $10</span>
+      </div>
+    </div>
+    <div class="row desc-sub-text">
+      <div class="col-xs-12">
+        <span>Includes $10 per ticket fee </span>
+      </div>
+    </div>    
+    <div class="row" style="margin-bottom: 20px;" *ngIf="item.showBtn">
+      <div class="col-xs-12" style="text-align: center;">
+        <button class="btn btn-success">Continue with this fare</button>
+      </div>
+    </div>  
+    <div class="horizantal-line"></div> 
+    <br>
+  </div> 
+  <br>  
+</div>
