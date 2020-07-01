@@ -1,0 +1,53 @@
+.box-div {
+    width: 10px;
+    height: 30px;
+    border: 2px solid #bfbfbf;  
+    border-style: solid;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .container {
+    width: 30%;
+    border: 2px solid #bfbfbf;  
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+  .box-div-small {
+    height: 30px;
+    width: 30px;
+    border: 2px solid #bfbfbf;
+    border-radius: 5px;
+    border-style: solid;
+    margin-right: 10px;
+  }
+  
+  th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  
+  
+  .accessible {
+    background-color: #eeeff2;
+    background-image: url(src/assets/accessible.png);
+    
+  }
+  
+  .unavailable {
+    background-color: #eeeff2;
+    background-image: url(src/assets/close3.png);
+  }
+  
+  .div-content{
+      margin-left: -5px;
+  }
+  
+  .premium {
+    background-color: #9dc4ab;
+  }
+  .box- {
+    padding-left: 5px;
+  }
+  

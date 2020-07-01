@@ -1,0 +1,52 @@
+<div class="container">
+    <b><h4>New Delhi(DEL) --> Addis Ababa(ADD)</h4></b>
+    <h5>Sun July 24 | Ethoplan 689 | Airbus A319</h5>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-xs-6">
+        <div class="col-xs-2 box-div"></div>
+        <div class="col-xs-4">
+          <span>Availabel</span>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="col-xs-2 box-div unavailable">
+        </div>
+        <div class="col-xs-4">
+          <span>UnAvailabel</span>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-xs-6">
+        <div class="col-xs-2 box-div accessible"></div>
+        <div class="col-xs-4">
+          <span>Accessible</span>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="col-xs-2 box-div premium"><span>P</span></div>
+        <div class="col-xs-4">
+          <span>Premium</span>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <table style="width: 100%;">
+        <tr>
+          <th *ngFor="let col of colunms">{{ col.character }}</th>
+        </tr>
+        <tr *ngFor="let row of rowData">
+          <td *ngFor="let rowData of row; index as i">
+            <div
+              *ngIf="!rowData.show"
+              class="box-div-small"
+              [ngClass]="getClass(rowData)"
+            ></div>
+            <div *ngIf="rowData.show">{{ rowData.rowNumber }}</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
