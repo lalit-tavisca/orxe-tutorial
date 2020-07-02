@@ -1,0 +1,31 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+
+.available {
+  color: green
+}
+
+.notOffered {
+  color: red
+}
+
+.availableForAChange {
+  font-weight: bold;
+}
+
+.bottom-sheet-close {
+  float: right;
+  cursor: pointer;
+}
