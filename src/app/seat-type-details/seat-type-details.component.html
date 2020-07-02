@@ -1,0 +1,6 @@
+<div class="type-container">
+    <div class="type-content" *ngFor="let seatTypeDetail of seatTypeDetails">
+        <span class="type" [ngStyle]="getImgSrc(seatTypeDetail.imgSrc)"></span>
+        <span class="title">{{getSeatType(seatTypeDetail.type)}}</span>
+    </div>
+</div>

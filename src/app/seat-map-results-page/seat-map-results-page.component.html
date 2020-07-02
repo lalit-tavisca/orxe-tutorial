@@ -1,0 +1,6 @@
+<div>
+    <app-seat-map-flight-details [flightDetails]="seatMapService.seatmapFlightDetails"></app-seat-map-flight-details>
+    <app-seat-type-details [seatTypeDetails]="seatMapService.seatTypeDetails"></app-seat-type-details>
+    <!-- Need to add seats using seat response received by loop app-seat-->
+    <app-seat-map [seatMap]="seatMapService.seatmapResponse"></app-seat-map>
+</div>

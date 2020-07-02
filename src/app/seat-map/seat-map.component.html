@@ -1,0 +1,10 @@
+<div class="seat-map-container" *ngFor="let cabin of seatMap.cabins">
+    <div *ngFor="let row of cabin.rows; let rowIndex = index">
+        <div class="row" *ngFor="let column of cabin.columns; let columnIndex = index">
+            <span *ngFor="let seat of cabin.seats | slice:rowIndex*6:(rowIndex+1)*6; let seatIndex = index">
+                <app-seat [seat]="seat"></app-seat>
+                <span class="row-number" *ngIf="seatIndex===2">{{row.number}}</span>
+            </span>
+        </div>
+    </div>
+</div>
