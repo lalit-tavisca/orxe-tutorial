@@ -1,1 +1,6 @@
-<span class="seat-view"></span>
+<span [ngSwitch]="seat.occupationStatus">
+    <span *ngSwitchCase="'available'" class="seat-view seat-available"></span>
+    <span *ngSwitchCase="'reserved'" class="seat-view seat-reserved"></span>
+    <span *ngSwitchCase="'accessible'" class="seat-view seat-accessible"></span>
+    <span *ngSwitchCase="'premium'" class="seat-view seat-premium"></span>
+</span>

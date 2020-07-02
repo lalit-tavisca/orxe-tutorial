@@ -7,6 +7,7 @@ import { SeatComponent } from './seat/seat.component';
 import { SeatMapFlightDetailsComponent } from './seat-map-flight-details/seat-map-flight-details.component';
 import { SeatMapComponent } from './seat-map/seat-map.component';
 import { SeatTypeDetailsComponent } from './seat-type-details/seat-type-details.component';
+import { SeatMapResultsPageComponent } from './seat-map-results-page/seat-map-results-page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SeatTypeDetailsComponent } from './seat-type-details/seat-type-details.
     SeatComponent,
     SeatMapFlightDetailsComponent,
     SeatMapComponent,
-    SeatTypeDetailsComponent
+    SeatTypeDetailsComponent,
+    SeatMapResultsPageComponent
   ],
   imports: [
     BrowserModule,

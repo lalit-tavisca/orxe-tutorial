@@ -17,19 +17,19 @@ export class SeatMapService {
         return [
             { 
                type: SeatType.Available,
-                imgSrc: "Available.png"
+                imgSrc: "available.png"
             },
             { 
-                type: SeatType.Restricted,
-                imgSrc: "Restricted.png"
+                type: SeatType.Reserved,
+                imgSrc: "reserved.png"
             },
             { 
                 type: SeatType.Accessible,
-                imgSrc: "Accessible.png"
+                imgSrc: "accessible.png"
             },
             { 
                 type: SeatType.Premium,
-                imgSrc: "Premium.png"
+                imgSrc: "premium.png"
             }
         ]
     }
@@ -190,7 +190,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "7",
                             "columnCharacter": "B",
-                            "occupationStatus": "Accessible",
+                            "occupationStatus": "accessible",
                             "characteristics": [],
                             "optionalData": {
                                 "isPaidSeat": false
@@ -199,7 +199,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "7",
                             "columnCharacter": "C",
-                            "occupationStatus": "Premium",
+                            "occupationStatus": "premium",
                             "characteristics": [
                                 "aisle"
                             ],
@@ -221,7 +221,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "7",
                             "columnCharacter": "E",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "available",
                             "characteristics": [],
                             "optionalData": {
                                 "isPaidSeat": false
@@ -230,7 +230,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "7",
                             "columnCharacter": "F",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "available",
                             "characteristics": [
                                 "window"
                             ],
@@ -241,7 +241,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "8",
                             "columnCharacter": "A",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "available",
                             "characteristics": [
                                 "window"
                             ],
@@ -323,7 +323,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "9",
                             "columnCharacter": "C",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "available",
                             "characteristics": [
                                 "aisle"
                             ],
@@ -376,7 +376,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "10",
                             "columnCharacter": "B",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "available",
                             "characteristics": [],
                             "optionalData": {
                                 "isPaidSeat": false
@@ -427,7 +427,7 @@ export class SeatMapService {
                         {
                             "rowNumber": "11",
                             "columnCharacter": "A",
-                            "occupationStatus": "reserved",
+                            "occupationStatus": "available",
                             "characteristics": [
                                 "window"
                             ],

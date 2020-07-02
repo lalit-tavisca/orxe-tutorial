@@ -21,12 +21,11 @@ export class SeatTypeDetailsComponent implements OnInit {
       case SeatType.Available: return "Available";
       case SeatType.Accessible: return "Accessible";
       case SeatType.Premium: return "Premium";
-      case SeatType.Restricted: return "Restricted";
+      case SeatType.Reserved: return "Reserved";
     }
   }
 
   getImgSrc(imgSrc: string) {
-    console.log(imgSrc);
     return {
       background: 'url(\'../../assets/img/'+ imgSrc +'\') no-repeat center'
     };

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SeatMapService } from '../service/seatmap.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { SeatMap } from '../models/seat-map.model';
 
 @Component({
   selector: 'app-seat-map',
@@ -8,7 +8,9 @@ import { SeatMapService } from '../service/seatmap.service';
 })
 export class SeatMapComponent implements OnInit {
 
-  constructor(private seatMapService: SeatMapService) { }
+  constructor() { }
+  
+  @Input() seatMap: SeatMap;
   
   ngOnInit() {
   }

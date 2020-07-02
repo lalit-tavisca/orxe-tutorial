@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Seat } from '../models/seat.model';
 
 @Component({
   selector: 'app-seat',
@@ -7,11 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SeatComponent implements OnInit {
 
-  @Input() background: string = "{background:'url(\'../../assets/img/seat_booked.png\') no-repeat center'}";
-
   constructor() { }
+
+  @Input() seat: Seat;
 
   ngOnInit() {
   }
-
 }

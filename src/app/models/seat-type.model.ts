@@ -1,6 +1,6 @@
 export enum SeatType {
     Available,
-    Restricted,
+    Reserved,
     Accessible,
     Premium
 }

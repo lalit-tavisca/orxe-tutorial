@@ -1,9 +1,20 @@
+.seat-accessible {
+    background: url('../../assets/img/accessible.png') no-repeat center;
+}
+
+.seat-reserved {
+    background: url('../../assets/img/reserved.png') no-repeat center;
+}
+
+.seat-premium {
+    background: url('../../assets/img/premium.png') no-repeat center;
+}
+
 .seat-view {
     display: inline-block;
-    margin: 2.5px;
+    margin: 5px;
     width: 25px;
     height: 25px;
     border: 1.5px #8A8D8D solid;
     border-radius: 8px;
-    // background: url('../../assets/img/seat_booked.png') no-repeat center;
-}   
+}
