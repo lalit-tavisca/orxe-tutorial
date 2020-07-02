@@ -1,12 +1,48 @@
 import { Injectable } from "@angular/core";
-import { SeatMap } from '../models/seatmap.model';
+import { SeatMapFlightDetails } from '../models/seat-map-flight-details.model';
+import { SeatTypeDetail } from'../models/seat-type-detail.model';
+import { SeatMap } from '../models/seat-map.model';
+import { SeatType } from '../models/seat-type.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class SeatMapService {
+    seatmapFlightDetails: SeatMapFlightDetails = this.getMockSeatMapFlightDetails();
     seatmapResponse: SeatMap = this.getMockSeatmapResponse();
+    seatTypeDetails: SeatTypeDetail[] = this.getMockSeatTypeDetails();
+
+    private getMockSeatTypeDetails() {
+        return [
+            { 
+               type: SeatType.Available,
+                imgSrc: "Available.png"
+            },
+            { 
+                type: SeatType.Restricted,
+                imgSrc: "Restricted.png"
+            },
+            { 
+                type: SeatType.Accessible,
+                imgSrc: "Accessible.png"
+            },
+            { 
+                type: SeatType.Premium,
+                imgSrc: "Premium.png"
+            }
+        ]
+    }
+
+    private getMockSeatMapFlightDetails() {
+        return {
+            source: "New Delhi(DEL)",
+            destination: "Addis Ababa (ADD)",
+            travelDate: "Sun, July 24",
+            carrier: "Ethopian airlines 689",
+            flightModel: "Airbus A319"     
+        };
+    }
 
     private getMockSeatmapResponse() {
         return {

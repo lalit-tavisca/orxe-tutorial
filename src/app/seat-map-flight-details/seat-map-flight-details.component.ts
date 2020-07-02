@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SeatMapFlightDetails } from '../models/seat-map-flight-details.model';
 
 @Component({
   selector: 'app-seat-map-flight-details',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SeatMapFlightDetailsComponent implements OnInit {
 
   constructor() { }
+
+  @Input() flightDetails: SeatMapFlightDetails; 
 
   ngOnInit() {
   }
