@@ -1,0 +1,36 @@
+<div class="fare-attributes-bottom-sheet">
+  <div class="head">
+    <label>What's includes</label>
+    <label class="bottom-sheet-close" (click)="close()">&#10005;</label>
+  </div>
+  <div class="body">
+    <table>
+      <tr>
+        <th></th>
+        <th *ngFor="let brand of data.brandDetails">
+          <div>{{brand.brandName}}</div>
+          <div><label>{{getCurrency(brand.currency)}}</label><label class="fare-amount">{{brand.amount}}</label></div>
+        </th>
+      </tr>
+      <tr *ngFor="let attribute of data.attributeList;let i=index">
+        <td>{{attribute}}</td>
+        <td *ngFor="let brand of data.brandDetails">
+          <span *ngIf="brand.attributes[i]==='Available' then available else availableForAChange">&#10003;</span>
+
+          <ng-template #available>
+            <span class="available">&#10004;</span>
+          </ng-template>
+
+          <ng-template #availableForAChange>
+            <span class="availableForAChange"
+              *ngIf="brand.attributes[i]==='AvailableForACharge' else notOffered">$</span>
+          </ng-template>
+
+          <ng-template #notOffered>
+            <span class="notOffered">&#10005;</span>
+          </ng-template>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
